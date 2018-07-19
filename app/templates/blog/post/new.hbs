@@ -1,0 +1,5 @@
+<form onSubmit={{action 'doCreate'}}>
+  <input type="text" name="name" value="{{name}}" onChange={{action (mut name) value='target.value'}}>
+  <textarea name="content" rows="8" cols="80" onChange={{action (mut content) value='target.value'}}>{{content}}</textarea>
+  <button type="submit" name="button">Create</button>
+</form>

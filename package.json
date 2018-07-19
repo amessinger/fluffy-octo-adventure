@@ -11,13 +11,16 @@
   },
   "repository": "",
   "scripts": {
-    "build": "ember build",
+    "lambda-serve": "netlify-lambda serve lambda-src",
+    "build": "ember build -e production && netlify-lambda build lambda-src",
     "lint:js": "eslint .",
-    "start": "ember serve",
+    "start": "concurrently \"ember serve --proxy http://localhost:9000\" \"npm run lambda-serve\"",
     "test": "ember test"
   },
   "devDependencies": {
+    "aws-sdk": "^2.273.1",
     "broccoli-asset-rev": "^2.7.0",
+    "concurrently": "^3.6.0",
     "ember-ajax": "^3.0.0",
     "ember-cli": "~3.2.0",
     "ember-cli-app-version": "^3.0.0",
@@ -39,7 +42,9 @@
     "ember-source": "~3.2.0",
     "eslint-plugin-ember": "^5.0.0",
     "loader.js": "^4.2.3",
-    "qunit-dom": "^0.6.2"
+    "netlify-lambda": "^0.4.0",
+    "qunit-dom": "^0.6.2",
+    "uuid": "^3.3.2"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
