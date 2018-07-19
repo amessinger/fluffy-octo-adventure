@@ -11,8 +11,8 @@
   },
   "repository": "",
   "scripts": {
-    "lambda-serve": "netlify-lambda serve lambda-src",
-    "build": "ember build -e production && netlify-lambda build lambda-src",
+    "lambda-serve": "netlify-lambda serve lambda",
+    "build": "ember build -e production && netlify-lambda build lambda",
     "lint:js": "eslint .",
     "start": "concurrently \"ember serve --proxy http://localhost:9000\" \"npm run lambda-serve\"",
     "test": "ember test"
